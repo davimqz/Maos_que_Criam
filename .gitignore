@@ -1,0 +1,50 @@
+# Sistema
+*.log
+*.pot
+*.pyc
+*.pyo
+*.env
+*.coverage
+*.cover
+*.mo
+*.py,cover
+*.sqlite3
+
+# Configurações do editor
+.idea/
+.vscode/
+*.sublime-workspace
+*.sublime-project
+
+# Diretórios do sistema operacional
+.DS_Store
+Thumbs.db
+
+# Virtualenv
+venv/
+ENV/
+env/
+
+# Arquivos de migração
+*/migrations/
+
+# Diretório estático gerado automaticamente
+staticfiles/
+
+# Diretório media (arquivos carregados pelo usuário)
+media/
+
+# Arquivos de cache
+_pycache_/
+*.py[cod]
+*.so
+
+# Configuração local (se houver)
+local_settings.py
+
+# Arquivos do pytest
+.pytest_cache/
+
+# Arquivos criados pelo sistema
+*.swp
+*.swo
