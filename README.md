@@ -5,31 +5,69 @@ Este projeto consiste em um site voltado para a gestão de materiais doados, ofe
 
 ## Índice
 - [Visão Geral](#visao-geral)
-- [Funcionalidades](#funcionalidades)
-- [Como Acessar Mais Informações](#como-acessar-mais-informacoes)
 - [Participantes](#participantes)
+- [Sprint 1 (SR1)](#sprint-1-sr1)
 
-## Visão Geral
-Este projeto visa facilitar a gestão de doações de materiais, oferecendo uma interface intuitiva e um acompanhamento transparente para os usuários.
+---
 
-## Funcionalidades
-- Mapas com pontos de doação.
-- Instruções detalhadas para doação e cuidados com materiais.
-- Transparência no acompanhamento do destino das doações.
-- Canal de comunicação direta com a empresa.
+<details>
+  <summary>Visão Geral</summary>
+  
+  Este projeto visa facilitar a gestão de doações de materiais, oferecendo uma interface intuitiva e um acompanhamento transparente para os usuários.
+</details>
 
-## Como Acessar Mais Informações
-Para mais detalhes sobre o projeto e como ele funciona, acesse o nosso Google Site: [Link para o site](#).
+<details>
+  <summary>Participantes</summary>
+  
+  1. **Ana Maria Brito** - ambcbm@cesar.school
+  2. **Fabiana Coelho Souza Leão** - fcsls@cesar.school
+  3. **Irvin Amilcar** - iafbs@cesar.school
+  4. **Joana** - jfps@cesar.school
+  5. **João Pedro** - jpmb@cesar.school
+  6. **Julia Maria Teixeira** - jmst@cesar.school
+  7. **Lucas Calabria** - lvc@cesar.school
+  8. **Lucas Rodrigues** - lrc@cesar.school
+  9. **Luiz Felipe Andreto** - lfan@cesar.school
+  10. **Nana** - mfs5@cesar.school
+  11. **Vítor César** - vcsa@cesar.school
+</details>
 
-## Participantes
-1. **Ana Maria Brito** - ambcbm@cesar.school
-2. **Fabiana Coelho Souza Leão** - fcsls@cesar.school
-3. **Irvin Amilcar** - iafbs@cesar.school
-4. **Joana** - jfps@cesar.school
-5. **João Pedro** - jpmb@cesar.school
-6. **Julia Maria Teixeira** - jmst@cesar.school
-7. **Lucas Calabria** - lvc@cesar.school
-8. **Lucas Rodrigues** - lrc@cesar.school
-9. **Luiz Felipe Andreto** - lfan@cesar.school
-10. **Nana** - mfs5@cesar.school
-11. **Vítor César** - vcsa@cesar.school
+<details>
+  <summary>Sprint 1 (SR1)</summary>
+
+  ### 1. Histórias do Usuário
+  As cinco histórias do usuário identificadas para esta sprint podem ser acessadas no documento a seguir:
+  
+  - [Documento com as Histórias de Usuário](#)
+  
+  ### 2. Histórias Implementadas
+  As duas histórias do usuário que foram implementadas nesta sprint podem ser acessadas no documento a seguir:
+  
+  - [Documento com as Histórias Implementadas](#)
+  
+  ### 3. Protótipo de Baixa Fidelidade e Screencast
+  Um protótipo de baixa fidelidade foi desenvolvido para validar o fluxo inicial da aplicação. Abaixo está o link para o protótipo e um screencast demonstrando seu uso.
+  
+  - [Link para o protótipo](#)
+  - [Link para o screencast](#)
+  
+  ### 4. Diagrama de Atividades
+  O diagrama de atividades descrevendo o fluxo do sistema foi incluído abaixo. Ele apresenta o processo desde a doação até o acompanhamento das contribuições pelos administradores.
+  
+  - [Diagrama de Atividades](#)
+  
+  ### 5. Issue/Bug Tracker Atualizado
+  O issue/bug tracker foi mantido atualizado no GitHub, e abaixo está um print de tela demonstrando o rastreamento de bugs e progresso do projeto.
+  
+  - ![Issue Tracker](#)
+  
+  ### 6. Deployment em Produção
+  As histórias de usuário implementadas foram publicadas em produção no Azure. Seguem o link e as instruções para acessar o sistema, além de um screencast com uma demonstração de uso.
+  
+  - [Link para o sistema em produção no Azure](#)
+  - [Screencast de uso do sistema](#)
+  
+  ### 7. Programação em Par
+  A técnica de programação em par foi utilizada durante o desenvolvimento das funcionalidades. A experiência foi positiva, permitindo maior compartilhamento de conhecimento e agilidade na resolução de problemas.
+  
+</details>
