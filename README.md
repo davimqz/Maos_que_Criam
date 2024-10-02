@@ -1,4 +1,4 @@
-# Nome do Projeto
+# Mãos que Criam
 
 ## Descrição
 Este projeto consiste em um site voltado para a gestão de materiais doados, oferecendo mapas dos pontos de doação, orientações sobre cuidados e instruções para o processo de doação. A plataforma também garante transparência no acompanhamento das contribuições e facilita a comunicação com os administradores para dúvidas, tornando o processo de doação mais acessível e eficiente.
@@ -33,12 +33,12 @@ Este projeto consiste em um site voltado para a gestão de materiais doados, ofe
   ### 1. Histórias do Usuário
   As cinco histórias do usuário identificadas para esta sprint podem ser acessadas no documento a seguir:
   
-  - [Documento com as Histórias de Usuário](#)
+  - [Documento com as Histórias de Usuário](https://docs.google.com/document/d/1WptW0s2AE_1DnTBoCHMCRu9H4yfcfnbxbDNzMAXWv6Y/edit?usp=sharing)
   
   ### 2. Histórias Implementadas
   As duas histórias do usuário que foram implementadas nesta sprint podem ser acessadas no documento a seguir:
   
-  - [Documento com as Histórias Implementadas](#)
+  - [Documento com as Histórias Implementadas](https://docs.google.com/document/d/11ciSbkcs3Y3W-yx-854pF6wEboSyOZQt-uz6bRF4vMI/edit?usp=sharing)
   
   ### 3. Protótipo de Baixa Fidelidade e Screencast
   Um protótipo de baixa fidelidade foi desenvolvido para validar o fluxo inicial da aplicação. Abaixo está o link para o protótipo e um screencast demonstrando seu uso.
