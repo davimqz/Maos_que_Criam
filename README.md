@@ -3,11 +3,6 @@
 ## Descrição
 Este projeto consiste em um site voltado para a gestão de materiais doados, oferecendo mapas dos pontos de doação, orientações sobre cuidados e instruções para o processo de doação. A plataforma também garante transparência no acompanhamento das contribuições e facilita a comunicação com os administradores para dúvidas, tornando o processo de doação mais acessível e eficiente.
 
-## Índice
-- [Visão Geral](#visao-geral)
-- [Participantes](#participantes)
-- [Sprint 1 (SR1)](#sprint-1-sr1)
-
 ---
 
 <details>
