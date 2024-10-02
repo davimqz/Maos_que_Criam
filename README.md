@@ -6,24 +6,24 @@ Este projeto consiste em um site voltado para a gestão de materiais doados, ofe
 ---
 
 <details>
-  <summary>Visão Geral</summary>
+  <summary>Visão Geral</summary> <br>
   
   Este projeto visa facilitar a gestão de doações de materiais, oferecendo uma interface intuitiva e um acompanhamento transparente para os usuários.
 </details>
 
 <details>
-  <summary>Participantes</summary>
+  <summary>Participantes</summary> <br>
   
   1. **Ana Maria Brito** - ambcbm@cesar.school
   2. **Fabiana Coelho Souza Leão** - fcsls@cesar.school
   3. **Irvin Amilcar** - iafbs@cesar.school
-  4. **Joana** - jfps@cesar.school
-  5. **João Pedro** - jpmb@cesar.school
+  4. **Joana Flora** - jfps@cesar.school
+  5. **João Pedro Moraes** - jpmb@cesar.school
   6. **Julia Maria Teixeira** - jmst@cesar.school
   7. **Lucas Calabria** - lvc@cesar.school
   8. **Lucas Rodrigues** - lrc@cesar.school
   9. **Luiz Felipe Andreto** - lfan@cesar.school
-  10. **Nana** - mfs5@cesar.school
+  10. **Mariana Fernandes** - mfs5@cesar.school
   11. **Vítor César** - vcsa@cesar.school
 </details>
 
@@ -63,6 +63,6 @@ Este projeto consiste em um site voltado para a gestão de materiais doados, ofe
   - [Screencast de uso do sistema](#)
   
   ### 7. Programação em Par
-  A técnica de programação em par foi utilizada durante o desenvolvimento das funcionalidades. A experiência foi positiva, permitindo maior compartilhamento de conhecimento e agilidade na resolução de problemas.
+  ....
   
 </details>
