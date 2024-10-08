@@ -1,0 +1,53 @@
+# Ignorar arquivos Python compilados
+*.pyc
+__pycache__/
+
+# Ignorar banco de dados SQLite
+db.sqlite3
+
+# Ignorar migrações do Django
+*/migrations/*.py
+*/migrations/*.pyc
+
+# Ignorar configurações de ambiente
+.env
+.vscode/
+.idea/
+
+# Ignorar arquivos temporários criados pelo sistema operacional
+*.log
+*.pot
+*.mo
+*.swp
+*.swo
+*.DS_Store
+Thumbs.db
+
+# Ignorar diretórios do Django coletados estáticos
+staticfiles/
+media/
+static/
+
+# Ignorar arquivos relacionados ao Node.js (se houver)
+node_modules/
+npm-debug.log
+
+# Ignorar arquivos de cache do Django
+cache/
+*.cache
+
+# Ignorar arquivos do diretório de desenvolvimento local
+local_settings.py
+
+# Ignorar arquivos de pacotes (ex: pipenv, poetry)
+Pipfile
+Pipfile.lock
+poetry.lock
+
+# Ignorar arquivos CSS e JavaScript compilados automaticamente
+*.min.js
+*.min.css
+
+# Ignorar arquivos de build de frontend (se estiver usando npm ou yarn)
+dist/
+build/
