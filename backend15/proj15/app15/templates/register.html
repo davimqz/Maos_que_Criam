@@ -24,5 +24,7 @@
     {% if error_message %}
     <p style="color:red;">{{ error_message }}</p>
     {% endif %}
+
+    <p>Já tem uma conta? <a href="{% url 'login' %}">Clique aqui para fazer login</a></p>
 </body>
 </html>
