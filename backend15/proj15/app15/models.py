@@ -22,7 +22,10 @@ class CustomUser(AbstractUser):
 class Doador(models.Model):
     nome = models.CharField(max_length=100)
     contato = models.CharField(max_length=100, blank=True, null=True)
+    email = models.EmailField(max_length=100, blank=True, null=True)  # Novo atributo
+    endereco = models.CharField(max_length=255, blank=True, null=True)  # Novo atributo
     usuario = models.OneToOneField(User, null=True, blank=True, on_delete=models.CASCADE)  # Assume que cada doador é um usuário
+    
     def __str__(self):
         return self.nome
 
