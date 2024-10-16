@@ -39,3 +39,11 @@ class Doacao(models.Model):
         return f"{self.tipo_material} - {self.doador.nome}"
 
 
+class Feedback(models.Model):
+    nome = models.CharField(max_length=100)
+    material = models.CharField(max_length=100)
+    opiniao = models.TextField()
+    avaliacao = models.CharField(max_length=20)
+
+    def __str__(self):
+        return self.nome

@@ -2,12 +2,13 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
-from .models import Doacao, Doador
+from .models import Doacao, Doador, Feedback
 from datetime import datetime
 from django.contrib.auth import logout
 from django.utils.dateparse import parse_date
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
+
 
 def register(request):
     if request.method == 'POST':
@@ -82,6 +83,24 @@ def lista_doacoes(request):
 def home(request):
     return render(request, 'home.html')
 
+
+def feedback_view(request):
+    if request.method == 'POST':
+        nome = request.POST.get('nome')
+        material = request.POST.get('material')
+        opiniao = request.POST.get('opiniao')
+        avaliacao = request.POST.get('opcoes')
+
+        # Verifica se todos os campos foram preenchidos
+        if nome and material and opiniao and avaliacao:
+            # Cria e salva o feedback no banco de dados
+            feedback = Feedback(nome=nome, material=material, opiniao=opiniao, avaliacao=avaliacao)
+            feedback.save()
+            return HttpResponse("Obrigado pelo seu feedback!")
+        else:
+            return HttpResponse("Por favor, preencha todos os campos.")
+
+    return render(request, 'feedbackdoador.html')
  # Importar o modelo Doador
 
 
