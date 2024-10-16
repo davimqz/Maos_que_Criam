@@ -9,7 +9,7 @@
  </head>
 <body>
     <header>
-        <img src="{% static 'imgs/' %}" alt="Imagem 1">
+        <img class="tamanho" src="{% static 'imgs/logosemfundo.png' %}" alt="Imagem 1">
         <nav>
             <a class="cta" href="/admin/">
                 Gestão de Doações
@@ -64,6 +64,7 @@
             </p>
         </div>
         <div class="image">
+            <!--icone de boneco urso -->
             <img alt="icone urso boneco" height="500" src="https://cdn-icons-png.flaticon.com/512/5002/5002251.png" width="500"/>
         </div>
     </section>
@@ -112,7 +113,9 @@
     <br><br><br><br><br><br>
     <div class="container">
         <div class="hero2">
-            <img alt="uma mulher" height="400" src="imgs/danielle.jpg" width="400"/>
+
+            <img class="tamanho1" src="{% static 'imgs/danielle.jpg' %}" alt="Imagem 1">
+           
             <div class="hero2-content">
                 <span class="badge">
                     Sobre a Fundadora
