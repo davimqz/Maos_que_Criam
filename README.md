@@ -51,10 +51,19 @@ Este projeto consiste em um site voltado para a gestão de materiais doados, ofe
   
   - [Diagrama de Atividades](#)
   
-  ### 5. Issue/Bug Tracker Atualizado
-  O issue/bug tracker foi mantido atualizado no GitHub, e abaixo está um print de tela demonstrando o rastreamento de bugs e progresso do projeto.
-  
-  - [Issue Tracker](#)
+ ### 5. Issue Tracker
+
+Utilizamos o **Jira** para gerenciar as funcionalidades do projeto, incluindo as que estão em desenvolvimento, as tarefas pendentes e as já implementadas.
+
+Você pode acessar o Jira através do seguinte link: [Acesse o Jira](link-para-o-jira).
+
+Nesta seção, você encontrará:
+- **Funcionalidades em Desenvolvimento:** Funcionalidades que estão atualmente em implementação.
+- **Tarefas Pendentes:** Tarefas que precisam ser concluídas.
+- **Funcionalidades Implementadas:** Funcionalidades que já foram concluídas e estão disponíveis.
+
+Para mais informações e detalhes sobre o progresso do projeto, consulte o painel do Jira.
+
   
   ### 6. Deployment em Produção
   As histórias de usuário implementadas foram publicadas em produção no Azure. Seguem o link e as instruções para acessar o sistema, além de um screencast com uma demonstração de uso.
