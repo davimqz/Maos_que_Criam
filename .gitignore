@@ -1,53 +1,67 @@
-# Ignorar arquivos Python compilados
-*.pyc
+# Arquivos Python compilados e cache
+*.py[cod]
 __pycache__/
+*.so
 
-# Ignorar banco de dados SQLite
+# Configurações de ambiente (ex: arquivos de variáveis de ambiente)
+.env
+local_settings.py
+
+# Arquivos e diretórios de logs e depuração
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Banco de dados SQLite
 db.sqlite3
 
-# Ignorar migrações do Django
-*/migrations/*.py
-*/migrations/*.pyc
+# Diretórios de cache do Django
+cache/
+*.cache
 
-# Ignorar configurações de ambiente
-.env
-.vscode/
-.idea/
+# Diretórios de migrações do Django
+**/migrations/
+!**/migrations/__init__.py  # Mantenha o __init__.py para que o diretório seja considerado um pacote Python
 
-# Ignorar arquivos temporários criados pelo sistema operacional
-*.log
-*.pot
-*.mo
-*.swp
-*.swo
-*.DS_Store
-Thumbs.db
-
-# Ignorar diretórios do Django coletados estáticos
+# Diretórios coletados estáticos do Django
 staticfiles/
 media/
 static/
 
-# Ignorar arquivos relacionados ao Node.js (se houver)
+# Arquivos gerados automaticamente (CSS, JS, etc.)
+*.min.js
+*.min.css
+*.map
+*.bundle.js
+*.bundle.css
+
+# Diretórios de build do frontend
+dist/
+build/
+
+# Node.js e pacotes relacionados
 node_modules/
-npm-debug.log
 
-# Ignorar arquivos de cache do Django
-cache/
-*.cache
+# VSCode e IntelliJ (IDE) arquivos de configuração
+.vscode/
+.idea/
 
-# Ignorar arquivos do diretório de desenvolvimento local
-local_settings.py
-
-# Ignorar arquivos de pacotes (ex: pipenv, poetry)
+# Arquivos de pacotes do Python (pipenv, poetry)
 Pipfile
 Pipfile.lock
 poetry.lock
 
-# Ignorar arquivos CSS e JavaScript compilados automaticamente
-*.min.js
-*.min.css
+# Sistema operacional (ex: macOS e Windows)
+.DS_Store
+Thumbs.db
 
-# Ignorar arquivos de build de frontend (se estiver usando npm ou yarn)
-dist/
-build/
+# Arquivos temporários e de backup criados pelo editor
+*.swp
+*.swo
+*.bak
+*~
+
+# Ignorar arquivos de tradução compilados (ex: gettext)
+*.mo
+*.pot
