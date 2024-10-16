@@ -33,7 +33,7 @@ Este projeto consiste em um site voltado para a gestão de materiais doados, ofe
   ### 1. Histórias do Usuário
   As cinco histórias do usuário identificadas para esta sprint podem ser acessadas no documento a seguir:
   
-  - [Documento com as Histórias de Usuário]()
+  - [Documento com as Histórias de Usuário](https://docs.google.com/document/d/1pfAEIsNdx9C4h-jXsui-TPJ3-hrMtVjZTtU1hR8ykjA/mobilebasic)
   
   ### 2. Histórias Implementadas
   As duas histórias do usuário que foram implementadas nesta sprint podem ser acessadas no documento a seguir:
