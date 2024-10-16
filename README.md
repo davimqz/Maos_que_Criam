@@ -38,7 +38,7 @@ Este projeto consiste em um site voltado para a gestão de materiais doados, ofe
   ### 2. Histórias Implementadas
   As duas histórias do usuário que foram implementadas nesta sprint podem ser acessadas no documento a seguir:
   
-  - [Documento com as Histórias Implementadas](https://docs.google.com/document/d/1pfAEIsNdx9C4h-jXsui-TPJ3-hrMtVjZTtU1hR8ykjA/mobilebasic)
+  - [Documento com as Histórias Implementadas](https://docs.google.com/document/d/1lh82iDWUn6GZXV5dyGe255BpOoegMHVbqKWRRePGjhM/edit?usp=sharing)
   
   ### 3. Protótipo de Baixa Fidelidade e Screencast
   Um protótipo de baixa fidelidade foi desenvolvido para validar o fluxo inicial da aplicação. Abaixo está o link para o protótipo e um screencast demonstrando seu uso.
