@@ -54,7 +54,7 @@ Este projeto consiste em um site voltado para a gestão de materiais doados, ofe
   ### 5. Issue/Bug Tracker Atualizado
   O issue/bug tracker foi mantido atualizado no GitHub, e abaixo está um print de tela demonstrando o rastreamento de bugs e progresso do projeto.
   
-  - ![Issue Tracker](#)
+  - [Issue Tracker](#)
   
   ### 6. Deployment em Produção
   As histórias de usuário implementadas foram publicadas em produção no Azure. Seguem o link e as instruções para acessar o sistema, além de um screencast com uma demonstração de uso.
@@ -63,6 +63,9 @@ Este projeto consiste em um site voltado para a gestão de materiais doados, ofe
   - [Screencast de uso do sistema](#)
   
   ### 7. Programação em Par
-  ....
-  
+
+  Segue o link para o relatório detalhado sobre o nosso uso da prática de Programação em Par.
+
+  - [Relatório programação em par](https://docs.google.com/document/d/1S0l-k7ziQWvNZi77SQb9EfEVr5BQFjDvAyyH47iYN0U/edit?usp=sharing)
+
 </details>
