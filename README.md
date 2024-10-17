@@ -44,7 +44,7 @@ Este projeto consiste em um site voltado para a gestão de materiais doados, ofe
   Um protótipo de baixa fidelidade foi desenvolvido para validar o fluxo inicial da aplicação. Abaixo está o link para o protótipo e um screencast demonstrando seu uso.
   
   - [Link para o protótipo](https://www.canva.com/design/DAGTxWSiw7w/e6drUkL_kZraCXCEi37VJQ/edit?utm_content=DAGTxWSiw7w&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
-  - [Link para o screencast](#)
+  - [Link para o screencast](https://youtu.be/klf_2hVsgKw?si=sygjGDC9nsoG-_oH)
   
   ### 4. Diagrama de Atividades
   O diagrama de atividades descrevendo o fluxo do sistema foi incluído abaixo. Ele apresenta o processo desde a doação até o acompanhamento das contribuições pelos administradores.
