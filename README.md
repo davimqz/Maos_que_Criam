@@ -43,19 +43,20 @@ Este projeto consiste em um site voltado para a gestão de materiais doados, ofe
   ### 3. Protótipo de Baixa Fidelidade e Screencast
   Um protótipo de baixa fidelidade foi desenvolvido para validar o fluxo inicial da aplicação. Abaixo está o link para o protótipo e um screencast demonstrando seu uso.
   
-  - [Link para o protótipo](#)
+  - [Link para o protótipo](https://www.canva.com/design/DAGTxWSiw7w/e6drUkL_kZraCXCEi37VJQ/edit?utm_content=DAGTxWSiw7w&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
   - [Link para o screencast](#)
   
   ### 4. Diagrama de Atividades
   O diagrama de atividades descrevendo o fluxo do sistema foi incluído abaixo. Ele apresenta o processo desde a doação até o acompanhamento das contribuições pelos administradores.
   
-  - [Diagrama de Atividades](#)
+  - [Diagrama de Atividades](https://www.canva.com/design/DAGTqc-HxiA/IT_mKq0cTOa4Th1blw4LJw/edit?utm_content=DAGTqc-HxiA&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
   
  ### 5. Issue Tracker
 
-Utilizamos o **Jira** para gerenciar as funcionalidades do projeto, incluindo as que estão em desenvolvimento, as tarefas pendentes e as já implementadas.
+Utilizamos o **Docs** para gerenciar as funcionalidades do projeto, incluindo as que estão em desenvolvimento, as tarefas pendentes e as já implementadas.
 
-Você pode acessar o Jira através do seguinte link: [Acesse o Jira](link-para-o-jira).
+Você pode acessar através do seguinte link: 
+- [Acesse aqui](https://docs.google.com/document/d/1gYEn5IR16PMxY-ACtmAUMO7PceSwC6tUE7lX1kuUGuo/edit?usp=sharing).
 
 Nesta seção, você encontrará:
 - **Funcionalidades em Desenvolvimento:** Funcionalidades que estão atualmente em implementação.
