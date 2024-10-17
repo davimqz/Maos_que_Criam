@@ -84,7 +84,7 @@ def home(request):
     return render(request, 'home.html')
 
 
-def feedback_view(request):
+def feedbackdoador(request):
     if request.method == 'POST':
         nome = request.POST.get('nome')
         material = request.POST.get('material')

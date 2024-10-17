@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <title>Feedback do Doador</title>
     <style>
@@ -84,47 +84,23 @@
     <header>
         <img alt="logo estrela" height="50" src="imgs/logosemfundo.png" width="50"/>
         <nav>
-            <a href="gestaodoacoes.html">
-                Gestão de Doações
-            </a>
-            <a href="#">
-                Pontos de Coleta
-            </a>
-            <a href="feedbackdoador.html">
-                Feedback do Doador
-            </a>
-            <a href="#">
-                Notificações de Necessidades
-            </a>
-            <a href="#">
-                Relatórios de Impacto
-            </a>
+            <a href="gestaodoacoes.html">Gestão de Doações</a>
+            <a href="#">Pontos de Coleta</a>
+            <a href="{% url 'feedbackdoador' %}">Feedback do Doador</a>
+            <a href="#">Notificações de Necessidades</a>
+            <a href="#">Relatórios de Impacto</a>
             <div class="dropdown">
-                <a href="#">
-                    Mais Histórias
-                </a>
+                <a href="#">Mais Histórias</a>
                 <div class="dropdown-content">
-                    <a href="#">
-                        História 6
-                    </a>
-                    <a href="#">
-                        História 7
-                    </a>
-                    <a href="#">
-                        História 8
-                    </a>
-                    <a href="#">
-                        História 9
-                    </a>
-                    <a href="#">
-                        História 10
-                    </a>
+                    <a href="#">História 6</a>
+                    <a href="#">História 7</a>
+                    <a href="#">História 8</a>
+                    <a href="#">História 9</a>
+                    <a href="#">História 10</a>
                 </div>
             </div>
         </nav>
-        <a class="cta" href="#">
-            Entrar ou Cadastrar-se
-        </a>
+        <a class="cta" href="#">Entrar ou Cadastrar-se</a>
     </header>
     <br><br><br><br><br><br><br>
     
@@ -133,29 +109,24 @@
             <i class="fas fa-fist-raised"></i>
             <div class="texto">
                 <section class="episodes">
-                    <h2>
-                        Feedback Doador
-                    </h2>
+                    <h2>Feedback Doador</h2>
                     <br><br>
-                    <p>
-                        Compartilhe conosco suas experiências utilizando nossa plataforma, diga os pontos positivos e no que podemos melhorar!
-                    </p>
+                    <p>Compartilhe conosco suas experiências utilizando nossa plataforma, diga os pontos positivos e no que podemos melhorar!</p>
                     <br><br><br>
                     <div class="left-section">
-                        <!-- Atualização do formulário para funcionar com Django -->
-                        <form method="POST" action="/feedback/">
+                        <form method="POST" action="{% url 'feedbackdoador' %}">
                             {% csrf_token %}
                             <label for="nome">Nome:</label><br><br>
-                            <input type="text" id="Nome" name="nome" placeholder="Digite seu Nome" required><br><br>
+                            <input type="text" id="nome" name="nome" placeholder="Digite seu Nome" required><br><br>
                             
                             <label for="material">Material:</label><br><br>
                             <input type="text" id="material" name="material" placeholder="Digite o Material Doado" required><br><br>
                             
                             <label for="opiniao">Diga sua Opinião:</label><br><br>
-                            <textarea name="opiniao" placeholder="Digite sua Opinião"></textarea><br><br>
+                            <textarea name="opiniao" placeholder="Digite sua Opinião" required></textarea><br><br>
                             
                             <label for="opcoes">Como você avalia nosso serviço?:</label><br><br>
-                            <select name="opcoes" id="opcoes">
+                            <select name="opcoes" id="opcoes" required>
                                 <option value="">Escolha sua opção</option>
                                 <option value="péssimo">Péssimo</option>
                                 <option value="ruim">Ruim</option>
