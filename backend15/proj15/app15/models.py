@@ -47,3 +47,22 @@ class Feedback(models.Model):
 
     def __str__(self):
         return self.nome
+    
+from django.db import models
+
+class Donor(models.Model):
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+    consent_to_share = models.BooleanField(default=True)  # Para controlar se o doador consente em compartilhar informações
+
+    def __str__(self):
+        return self.name
+
+class Donation(models.Model):
+    donor = models.ForeignKey(Donor, on_delete=models.SET_NULL, null=True)
+    material_type = models.CharField(max_length=50)
+    quantity = models.PositiveIntegerField()  # Quantidade doada
+    date_donated = models.DateField(auto_now_add=True)  # Data da doação
+
+    def __str__(self):
+        return f"{self.material_type} - {self.quantity}"

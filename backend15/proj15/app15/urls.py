@@ -16,6 +16,7 @@ Including another URLconf
 """
 from django.urls import path
 from . import views
+from .views import generate_report
 
 urlpatterns = [
     path('', views.home, name='home'),
@@ -26,4 +27,7 @@ urlpatterns = [
     path('logout/', views.user_logout, name='logout'),
     path('home/', views.home, name='home'),
     path('feedbackdoador/', views.feedbackdoador, name='feedbackdoador'),
+    path("relatorio/", views.generate_report, name="generate_report"),
+    
+
 ]

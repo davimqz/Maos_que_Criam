@@ -123,9 +123,100 @@ def feedbackdoador(request):
     # Para requisições GET, renderiza o formulário de doação
     #return render(request, 'registrar_doacao_usuario.html')
 
+from django.shortcuts import render
+from django.http import HttpResponse
+from .models import Donation
+from django.utils import timezone
+from django.template.loader import render_to_string
+import csv
+from reportlab.pdfgen import canvas
+import io
+from datetime import datetime
+from django.core.exceptions import ValidationError 
+
+def validate_date(date_text):
+    try:
+        return datetime.strptime(date_text, "%Y-%m-%d").date()
+    except ValueError:
+        raise ValidationError(f"'{date_text}' value has an invalid date format. It must be in YYYY-MM-DD format.")
 
 
+# Função para gerar relatório em PDF
+def generate_pdf_report(donations):
+    buffer = io.BytesIO()
+    p = canvas.Canvas(buffer)
+    p.drawString(100, 750, "Relatório de Doações e Impacto Social")
 
+    y = 700
+    for donation in donations:
+        line = f"Doador: {donation.donor.name}, Material: {donation.material_type}, Quantidade: {donation.quantity}, Data: {donation.date_donated}"
+        p.drawString(100, y, line)
+        y -= 20
+
+    p.showPage()
+    p.save()
+    buffer.seek(0)
+    return buffer
+
+# View para gerar e exibir o relatório
+def generate_report(request):
+    start_date = request.GET.get('start_date')
+    end_date = request.GET.get('end_date')
+    material_type = request.GET.get('material_type')
+    report_format = request.GET.get('format', 'html')
+
+    # Inicializa a queryset de doações
+    donations = Doacao.objects.all()
+
+    # Filtra doações pela data de início e fim, se fornecidas
+    if start_date:
+        try:
+            donations = donations.filter(data_doacao__gte=start_date)
+        except ValidationError as e:
+            return HttpResponse(f"Error: {e}")
+
+    if end_date:
+        try:
+            donations = donations.filter(data_doacao__lte=end_date)
+        except ValidationError as e:
+            return HttpResponse(f"Error: {e}")
+
+    # Filtra doações pelo tipo de material, se fornecido
+    if material_type:
+        donations = donations.filter(tipo_material__icontains=material_type)
+
+    # Gera o relatório em HTML ou PDF
+    if report_format == "pdf":
+        response = HttpResponse(content_type="application/pdf")
+        response["Content-Disposition"] = 'attachment; filename="relatorio_doacoes.pdf"'
+        p = canvas.Canvas(response)
+
+        # Título do relatório
+        p.drawString(100, 800, "Relatório de Doações e Impacto Social")
+
+        # Adicionar as informações de cada doação
+        y_position = 750
+        for donation in donations:
+            donation_info = (
+                f"Data: {donation.data_doacao}, "
+                f"Material: {donation.tipo_material}, "
+                f"Quantidade: {donation.quantidade}, "
+                f"Doador: {donation.doador.nome}"
+            )
+            p.drawString(100, y_position, donation_info)
+            y_position -= 20  # Move para a linha de baixo
+
+            # Se alcançar o final da página, adicionar nova página
+            if y_position < 50:
+                p.showPage()
+                y_position = 750
+
+        p.showPage()
+        p.save()
+        return response
+
+    # Para o formato HTML
+    return render(request, "report.html", {"donations": donations})
 
 
 
