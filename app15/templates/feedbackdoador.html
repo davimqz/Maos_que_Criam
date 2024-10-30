@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Feedback do Doador</title>
+    <style>
+    body {
+        font-family: 'Inter', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f5f5f5;
+        color: #333;
+    }
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 50px;
+        background-color: #4EADE4;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+    }
+    header .logo {
+        font-size: 24px;
+        font-weight: 700;
+        color: #fff;
+    }
+    header .logo span {
+        color: #F8D234;
+    }
+    header nav {
+        display: flex;
+        align-items: center;
+    }
+    header nav a {
+        margin: 0 15px;
+        text-decoration: none;
+        color: #fff;
+        font-weight: 600;
+    }
+    header nav .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+    header nav .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #fff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        z-index: 1;
+    }
+    header nav .dropdown-content a {
+        color: #333;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+    header nav .dropdown-content a:hover {
+        background-color: #f1f1f1;
+    }
+    header nav .dropdown:hover .dropdown-content {
+        display: block;
+    }
+    header .cta {
+        display: inline-block;
+        background-color: #F8D234;
+        color: #333;
+        padding: 10px 20px;
+        border-radius: 25px;
+        text-decoration: none;
+        font-weight: 400;
+        margin-right: 100px;
+        width: 200px;
+        text-align: center;
+    }
+    </style>
+</head>
+<body>
+    <header>
+        <img alt="logo estrela" height="50" src="imgs/logosemfundo.png" width="50"/>
+        <nav>
+            <a href="gestaodoacoes.html">Gestão de Doações</a>
+            <a href="#">Pontos de Coleta</a>
+            <a href="{% url 'feedbackdoador' %}">Feedback do Doador</a>
+            <a href="#">Notificações de Necessidades</a>
+            <a href="#">Relatórios de Impacto</a>
+            <div class="dropdown">
+                <a href="#">Mais Histórias</a>
+                <div class="dropdown-content">
+                    <a href="#">História 6</a>
+                    <a href="#">História 7</a>
+                    <a href="#">História 8</a>
+                    <a href="#">História 9</a>
+                    <a href="#">História 10</a>
+                </div>
+            </div>
+        </nav>
+        <a class="cta" href="#">Entrar ou Cadastrar-se</a>
+    </header>
+    <br><br><br><br><br><br><br>
+    
+    <div class="container">
+        <div class="feedback">
+            <i class="fas fa-fist-raised"></i>
+            <div class="texto">
+                <section class="episodes">
+                    <h2>Feedback Doador</h2>
+                    <br><br>
+                    <p>Compartilhe conosco suas experiências utilizando nossa plataforma, diga os pontos positivos e no que podemos melhorar!</p>
+                    <br><br><br>
+                    <div class="left-section">
+                        <form method="POST" action="{% url 'feedbackdoador' %}">
+                            {% csrf_token %}
+                            <label for="nome">Nome:</label><br><br>
+                            <input type="text" id="nome" name="nome" placeholder="Digite seu Nome" required><br><br>
+                            
+                            <label for="material">Material:</label><br><br>
+                            <input type="text" id="material" name="material" placeholder="Digite o Material Doado" required><br><br>
+                            
+                            <label for="opiniao">Diga sua Opinião:</label><br><br>
+                            <textarea name="opiniao" placeholder="Digite sua Opinião" required></textarea><br><br>
+                            
+                            <label for="opcoes">Como você avalia nosso serviço?:</label><br><br>
+                            <select name="opcoes" id="opcoes" required>
+                                <option value="">Escolha sua opção</option>
+                                <option value="péssimo">Péssimo</option>
+                                <option value="ruim">Ruim</option>
+                                <option value="razoável">Razoável</option>
+                                <option value="bom">Bom</option>
+                                <option value="muito bom">Muito Bom</option>
+                            </select><br><br>
+                            
+                            <button type="submit" class="btn">ENVIAR</button>
+                        </form>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Doações</title>
+</head>
+<body>
+    <h1>Lista de Doações</h1>
+    
+    <table>
+        <tr>
+            <th>Doador</th>
+            <th>Tipo de Material</th>
+            <th>Quantidade</th>
+            <th>Data da Doação</th>
+        </tr>
+        {% for doacao in doacoes %}
+        <tr>
+            <td>{{ doacao.doador.nome }}</td>
+            <td>{{ doacao.tipo_material }}</td>
+            <td>{{ doacao.quantidade }}</td>
+            <td>{{ doacao.data_doacao }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
