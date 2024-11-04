@@ -28,6 +28,7 @@ urlpatterns = [
     path('home/', views.home, name='home'),
     path('feedbackdoador/', views.feedbackdoador, name='feedbackdoador'),
     path("relatorio/", views.generate_report, name="generate_report"),
+    path('necessidades-especificas/', views.necessidades_view, name='necessidades_especificas'),
     
 
 ]

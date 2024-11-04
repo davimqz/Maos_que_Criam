@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
-from .models import Doacao, Doador, Feedback
+from .models import Doacao, Doador, Feedback, Necessidade
 from datetime import datetime
 from django.contrib.auth import logout
 from django.utils.dateparse import parse_date
@@ -218,5 +218,7 @@ def generate_report(request):
     # Para o formato HTML
     return render(request, "report.html", {"donations": donations})
 
-
+def necessidades_view(request):
+    necessidades = Necessidade.objects.all().order_by('-data_criacao')  # Ordena pela data de criação
+    return render(request, 'necessidades-especificas.html', {'necessidades': necessidades})
 

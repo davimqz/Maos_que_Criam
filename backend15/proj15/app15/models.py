@@ -66,3 +66,12 @@ class Donation(models.Model):
 
     def __str__(self):
         return f"{self.material_type} - {self.quantity}"
+    
+class Necessidade(models.Model):
+    item = models.CharField("Necessidade de Insumo", max_length=100)
+    prioridade = models.CharField("Prioridade", max_length=20, choices=[('alta', 'Alta'), ('media', 'Média'), ('baixa', 'Baixa')])
+    detalhes = models.TextField("Detalhes", blank=True, null=True)
+    data_criacao = models.DateTimeField("Data de Criação", auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.item} ({self.prioridade})"
