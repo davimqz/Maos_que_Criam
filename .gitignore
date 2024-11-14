@@ -24,10 +24,7 @@ cache/
 **/migrations/
 !**/migrations/__init__.py  # Mantenha o __init__.py para que o diretório seja considerado um pacote Python
 
-# Diretórios coletados estáticos do Django
-staticfiles/
-media/
-static/
+
 
 # Arquivos gerados automaticamente (CSS, JS, etc.)
 *.min.js
