@@ -75,3 +75,28 @@ class Necessidade(models.Model):
 
     def __str__(self):
         return f"{self.item} ({self.prioridade})"
+    
+from django.db import models
+
+class FAQ(models.Model):
+    question = models.CharField(max_length=255)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.question
+
+
+class FAQResponse(models.Model):
+    faq = models.ForeignKey(FAQ, on_delete=models.CASCADE, related_name="responses")
+    user_response = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Response to: {self.faq.question}"
+
+class Pergunta(models.Model):
+    texto = models.TextField("Pergunta")
+    data_criacao = models.DateTimeField(auto_now_add=True)
+    resposta = models.TextField("Resposta", blank=True, null=True)  # Campo para resposta
+    def __str__(self):
+        return self.texto[:50]  # Retorna os primeiros 50 caracteres

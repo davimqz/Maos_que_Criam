@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Perguntas Frequentes</title>
+</head>
+<body>
+    <h1>Perguntas Frequentes</h1>
+    <ul>
+        {% for pergunta in perguntas %}
+            <li>
+                <strong>Pergunta:</strong> {{ pergunta.texto }}<br>
+                {% if pergunta.resposta %}
+                    <strong>Resposta:</strong> {{ pergunta.resposta }}
+                {% else %}
+                    <i>Ainda não respondida.</i>
+                {% endif %}
+            </li>
+        {% empty %}
+            <p>Nenhuma pergunta ainda. Seja o primeiro a perguntar!</p>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'enviar_pergunta' %}">Enviar uma nova pergunta</a>
+</body>
+</html>

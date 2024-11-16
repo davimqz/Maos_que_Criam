@@ -28,7 +28,10 @@ urlpatterns = [
     path('home/', views.home, name='home'),
     path('feedbackdoador/', views.feedbackdoador, name='feedbackdoador'),
     path("relatorio/", views.generate_report, name="generate_report"),
-    path('necessidades-especificas/', views.necessidades_view, name='necessidades_especificas'),
-    
-
+    path('necessidades-especificas/', views.necessidades_view, name='necessidades_especificas'), 
+    path('faqs/', views.faq_list, name='faq_list'),
+    path('faqs/<int:faq_id>/respond/', views.submit_response, name='submit_response'),
+    path('perguntas-frequentes/', views.perguntas_frequentes, name='perguntas_frequentes'),
+    path('enviar-pergunta/', views.enviar_pergunta, name='enviar_pergunta'),
+    path('gerenciar-perguntas/', views.gerenciar_perguntas, name='gerenciar_perguntas'),
 ]

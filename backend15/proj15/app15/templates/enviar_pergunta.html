@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Enviar Pergunta</title>
+</head>
+<body>
+    <h1>Envie sua Pergunta</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <textarea name="pergunta" rows="5" cols="40" placeholder="Digite sua pergunta aqui..."></textarea><br>
+        <button type="submit">Enviar</button>
+    </form>
+    <a href="{% url 'perguntas_frequentes' %}">Voltar para Perguntas Frequentes</a>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gerenciar Perguntas</title>
+</head>
+<body>
+    <h1>Gerenciar Perguntas</h1>
+    <table border="1">
+        <tr>
+            <th>Pergunta</th>
+            <th>Resposta</th>
+            <th>Ações</th>
+        </tr>
+        {% for pergunta in perguntas %}
+        <tr>
+            <td>{{ pergunta.texto }}</td>
+            <td>
+                {% if pergunta.resposta %}
+                    {{ pergunta.resposta }}
+                {% else %}
+                    <i>Ainda não respondida</i>
+                {% endif %}
+            </td>
+            <td>
+                <form method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="pergunta_id" value="{{ pergunta.id }}">
+                    <textarea name="resposta" rows="2" cols="40" placeholder="Digite a resposta aqui..."></textarea><br>
+                    <button type="submit">Responder</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="{% url 'perguntas_frequentes' %}">Voltar para Perguntas Frequentes</a>
+</body>
+</html>
