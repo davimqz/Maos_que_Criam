@@ -294,3 +294,8 @@ def gerenciar_perguntas(request):
 
     return render(request, 'gerenciar_perguntas.html', {'perguntas': perguntas})
 
+@login_required
+def historico_doacoes(request):
+    feedbacks = Feedback.objects.all().order_by('-id')  # Ordena por ordem decrescente de criação
+    return render(request, 'historico-doacoes.html', {'feedbacks': feedbacks})
+

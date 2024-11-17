@@ -34,4 +34,5 @@ urlpatterns = [
     path('perguntas-frequentes/', views.perguntas_frequentes, name='perguntas_frequentes'),
     path('enviar-pergunta/', views.enviar_pergunta, name='enviar_pergunta'),
     path('gerenciar-perguntas/', views.gerenciar_perguntas, name='gerenciar_perguntas'),
+    path('historico-doacoes/', views.historico_doacoes, name='historico-doacoes'),
 ]

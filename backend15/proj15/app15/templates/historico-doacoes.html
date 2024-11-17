@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Histórico de Doações</title>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background-color: #4EADE4;
+            color: white;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        header a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+        .container {
+            padding: 100px 50px;
+        }
+        .feedback-item {
+            background: white;
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .feedback-item h3 {
+            margin-top: 0;
+        }
+        .feedback-item p {
+            margin: 5px 0;
+        }
+        .feedback-item .avaliacao {
+            font-weight: bold;
+            color: #4EADE4;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="#">Página Inicial</a>
+        <a href="{% url 'feedbackdoador' %}">Enviar Feedback</a>
+        <a href="{% url 'historico-doacoes' %}">Histórico de Feedbacks</a>
+    </header>
+    <div class="container">
+        <h1>Histórico de Feedbacks</h1>
+        <hr>
+        {% for feedback in feedbacks %}
+        <div class="feedback-item">
+            <h3>{{ feedback.nome }}</h3>
+            <p><strong>Material:</strong> {{ feedback.material }}</p>
+            <p><strong>Opinião:</strong> {{ feedback.opiniao }}</p>
+            <p><strong>Avaliação:</strong> <span class="avaliacao">{{ feedback.avaliacao }}</span></p>
+        </div>
+        {% empty %}
+        <p>Nenhum feedback registrado ainda.</p>
+        {% endfor %}
+    </div>
+</body>
+</html>
