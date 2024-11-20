@@ -17,6 +17,7 @@ Including another URLconf
 from django.urls import path
 from . import views
 from .views import generate_report
+from django.contrib.auth.views import LogoutView
 
 urlpatterns = [
     path('', views.home, name='home'),
@@ -24,7 +25,7 @@ urlpatterns = [
     path('lista_doacoes/', views.lista_doacoes, name='lista_doacoes'),
     path('register/', views.register, name='register'),
     path('login/', views.user_login, name='login'),
-    path('logout/', views.user_logout, name='logout'),
+    path('logout/', LogoutView.as_view(next_page='register'), name='logout'),
     path('home/', views.home, name='home'),
     path('feedbackdoador/', views.feedbackdoador, name='feedbackdoador'),
     path("relatorio/", views.generate_report, name="generate_report"),
