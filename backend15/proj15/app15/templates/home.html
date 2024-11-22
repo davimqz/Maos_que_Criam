@@ -13,7 +13,7 @@
         <img class="tamanho" src="{% static 'imgs/logosemfundo.png' %}" alt="Imagem 1">
         <nav>
             <a class="cta" href="/admin/">Gestão de Doações</a>
-            <a href="#">Pontos de Coleta</a>
+            <a href="{% url 'mapeamento' %}">Pontos de Coleta</a>
             <a href="{% url 'feedbackdoador' %}">Feedback do Doador</a>
             <a href="{% url 'necessidades_especificas' %}">Notificações de Necessidades</a>
             <a href="#">Relatórios de Impacto</a>

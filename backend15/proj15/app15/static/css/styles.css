@@ -85,6 +85,7 @@ header .cta {
     font-size: 48px;
     font-weight: 700;
     margin-bottom: 20px;
+    color: #2b1600;
 }
 .hero p {
     font-size: 18px;
@@ -105,6 +106,7 @@ header .cta {
     font-weight: 700;
     margin-bottom: 30px;
     text-align: center;
+    color: #2b1600;
 }
 .episodes .episode-list {
     display: flex;
@@ -178,6 +180,7 @@ header .cta {
     font-size: 36px;
     font-weight: 700;
     margin-bottom: 20px;
+    color: #2b1600;
 }
 .hero2-content p {
     font-size: 16px;
@@ -192,6 +195,7 @@ header .cta {
     font-size: 28px;
     font-weight: 700;
     margin-bottom: 20px;
+    color: #2b1600;
 }
 .features .feature-cards {
     display: flex;
@@ -214,6 +218,7 @@ header .cta {
     font-size: 18px;
     font-weight: 700;
     margin-bottom: 10px;
+    color: #eb63b4;
 }
 .feature-card p {
     font-size: 14px;
@@ -225,7 +230,7 @@ header .cta {
     align-items: center;
     padding: 40px;
     background-color: #4EADE4;
-    color: #fff;
+    color: #2b1600;
 }
 .footer div {
     text-align: center;
@@ -240,6 +245,7 @@ header .cta {
     margin: 5px 0 0 0;
     font-size: 16px;
     text-align: left;
+    color: #ff3333;
 }
 .footer .contact p {
     margin: 5px 0;

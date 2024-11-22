@@ -8,6 +8,7 @@ from django.contrib.auth import logout
 from django.utils.dateparse import parse_date
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
+import folium
 
 
 def register(request):
@@ -299,3 +300,43 @@ def historico_doacoes(request):
     feedbacks = Feedback.objects.all().order_by('-id')  # Ordena por ordem decrescente de criação
     return render(request, 'historico-doacoes.html', {'feedbacks': feedbacks})
 
+def map_view(request):
+    # Criação do mapa centralizado
+    mapa = folium.Map(location=[-8.047562, -34.877], zoom_start=12)
+
+    # Lista de pontos de coleta
+    pontos = [
+        {
+            "nome": "Espaço 46",
+            "endereco": "Av. República do Líbano, 251, RioMar Shopping, Piso L2",
+            "latitude": -8.08581,
+            "longitude": -34.89477,
+            "cor": "red",  # Cor do marcador
+        },
+    ]
+
+    # Adiciona marcadores ao mapa
+    for ponto in pontos:
+        # HTML do pop-up com links corrigidos
+        popup_html = f"""
+        <b>{ponto['nome']}</b><br>
+        {ponto['endereco']}<br>
+        <a href="https://www.google.com/maps/dir/?api=1&destination={ponto['latitude']},{ponto['longitude']}" target="_blank">
+            Rota no Google Maps
+        </a><br>
+        <a href="https://www.openstreetmap.org/directions?to={ponto['latitude']},{ponto['longitude']}" target="_blank">
+            Rota no OpenStreetMap
+        </a>
+        """
+        folium.Marker(
+            location=[ponto["latitude"], ponto["longitude"]],
+            popup=popup_html,
+            tooltip=ponto["nome"],
+            icon=folium.Icon(color=ponto["cor"]),  # Define a cor do marcador
+        ).add_to(mapa)
+
+    # Renderiza o mapa como HTML
+    mapa_html = mapa._repr_html_()
+
+    # Passa o mapa e os pontos para o template
+    return render(request, "mapeamento.html", {"mapa": mapa_html})

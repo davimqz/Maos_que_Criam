@@ -36,4 +36,5 @@ urlpatterns = [
     path('enviar-pergunta/', views.enviar_pergunta, name='enviar_pergunta'),
     path('gerenciar-perguntas/', views.gerenciar_perguntas, name='gerenciar_perguntas'),
     path('historico-doacoes/', views.historico_doacoes, name='historico-doacoes'),
+    path("mapeamento/", views.map_view, name="mapeamento"),
 ]
