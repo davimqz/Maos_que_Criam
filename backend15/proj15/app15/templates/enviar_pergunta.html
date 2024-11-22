@@ -1,15 +1,52 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
-    <title>Enviar Pergunta</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perguntas Frequentes</title>
 </head>
 <body>
-    <h1>Envie sua Pergunta</h1>
-    <form method="POST">
-        {% csrf_token %}
-        <textarea name="pergunta" rows="5" cols="40" placeholder="Digite sua pergunta aqui..."></textarea><br>
-        <button type="submit">Enviar</button>
-    </form>
-    <a href="{% url 'perguntas_frequentes' %}">Voltar para Perguntas Frequentes</a>
+    <header class="header">
+        <img class="logo" src="logo.png" alt="Logo">
+        <nav class="nav">
+            <a class="cta admin" href="/admin/">Admin</a>
+            <a href="#">Pontos de Coleta</a>
+            <a href="#">Feedback do Doador</a>
+            <a href="#">Notificações de Necessidades</a>
+            <a href="#">Relatórios de Impacto</a>
+            <a href="#">Perguntas Frequentes</a>
+            <a href="#">Gerenciar Perguntas</a>
+            <div class="dropdown">
+                <a href="#">Mais Histórias</a>
+                <div class="dropdown-content">
+                    <a href="#">Gerar relatório</a>
+                    <a href="#">História 7</a>
+                    <a href="#">História 8</a>
+                    <a href="#">Histórico de Doações</a>
+                    <a href="#">História 10</a>
+                </div>
+            </div>
+        </nav>
+        <a class="cta logout" href="#">Logout</a>
+    </header>
+
+    <main class="faq-section">
+        <h1>Perguntas Frequentes</h1>
+        <div class="faq-list">
+            <!-- Exemplo de item de pergunta -->
+            <div class="faq-item">
+                <div class="faq-question">Como posso fazer uma doação?</div>
+                <div class="faq-answer">Você pode fazer uma doação diretamente em um dos pontos de coleta.</div>
+            </div>
+            <!-- Outro item -->
+            <div class="faq-item">
+                <div class="faq-question">Como posso saber as necessidades mais urgentes?</div>
+                <div class="faq-answer">As necessidades urgentes são listadas nas notificações de necessidades.</div>
+            </div>
+        </div>
+        <div class="faq-action">
+            <a href="#" class="btn-submit">Enviar uma nova pergunta</a>
+        </div>
+    </main>
 </body>
 </html>

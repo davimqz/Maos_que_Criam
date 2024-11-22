@@ -217,13 +217,7 @@ header .dropdown-content a:hover {
         <h1>Relatório de Doações e Impacto Social</h1>
         
         <!-- Formulário para download do PDF -->
-        <form method="GET" action="{% url 'generate_report' %}">
-            <input type="hidden" name="start_date" value="{{ request.GET.start_date }}">
-            <input type="hidden" name="end_date" value="{{ request.GET.end_date }}">
-            <input type="hidden" name="material_type" value="{{ request.GET.material_type }}">
-            <input type="hidden" name="format" value="pdf">
-            <button type="submit">Baixar Relatório em PDF</button>
-        </form>
+       
         
         <table>
             <tr>

@@ -1,6 +1,34 @@
 <!DOCTYPE html>
 <html>
+
 <head>
+    {% load static %}
+    <header class="header">
+        <img class="logo" src="{% static 'imgs/logosemfundo.png' %}" alt="Logo">
+        <nav class="nav">
+            <a class="cta admin" href="/admin/">Admin</a>
+            <a href="#">Pontos de Coleta</a>
+            <a href="{% url 'feedbackdoador' %}">Feedback do Doador</a>
+            <a href="{% url 'necessidades_especificas' %}">Notificações de Necessidades</a>
+            <a href="#">Relatórios de Impacto</a>
+            <a href="{% url 'perguntas_frequentes' %}">Perguntas Frequentes</a>
+            {% if user.is_staff %}
+                <a href="{% url 'gerenciar_perguntas' %}">Gerenciar Perguntas</a>
+            {% endif %}
+            <div class="dropdown">
+                <a href="#">Mais Histórias</a>
+                <div class="dropdown-content">
+                    <a href="{% url 'generate_report' %}">Gerar relatório</a>
+                    <a href="#">História 7</a>
+                    <a href="#">História 8</a>
+                    <a href="{% url 'historico-doacoes' %}">Histórico de Doações</a>
+                    <a href="#">História 10</a>
+                </div>
+            </div>
+        </nav>
+        <a class="cta logout" href="{% url 'register' %}" onclick="return confirm('Você será redirecionado para o cadastro. Deseja continuar?');">Logout</a>
+    </header>
+
     <title>Gerenciar Perguntas</title>
 </head>
 <body>
