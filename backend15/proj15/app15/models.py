@@ -34,7 +34,7 @@ class Doacao(models.Model):
     tipo_material = models.CharField(max_length=100)
     quantidade = models.PositiveIntegerField()
     data_doacao = models.DateField(auto_now_add=True)
-    produto = models.CharField(max_length=255, default='Produto Não Especificado')
+    produto = models.CharField(max_length=255, default='')
     def __str__(self):
         return f"{self.tipo_material} - {self.doador.nome}"
 
