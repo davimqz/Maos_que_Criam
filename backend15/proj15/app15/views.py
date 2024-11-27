@@ -311,7 +311,7 @@ def map_view(request):
             "endereco": "Av. República do Líbano, 251, RioMar Shopping, Piso L2",
             "latitude": -8.08581,
             "longitude": -34.89477,
-            "cor": "red",  # Cor do marcador
+            "cor": "blue",  # Cor do marcador
         },
     ]
 
