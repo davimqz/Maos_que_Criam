@@ -17,7 +17,7 @@ if NOT_PROD:
     # SECURITY WARNING: don't run with debug turned on in production!
     DEBUG = True
     # SECURITY WARNING: keep the secret key used in production secret!
-    SECRET_KEY = '<A SECRET KEY DO SEU PROJETO>'
+    SECRET_KEY = 'django-insecure-ry33k#7gsh#1=2h-q0)jt@2!m+xia=(e#6%=gz0w4skcbp'
     ALLOWED_HOSTS = []
     DATABASES = {
         'default': {
@@ -26,7 +26,7 @@ if NOT_PROD:
         }
     }
 else:
-    SECRET_KEY = os.getenv('SECRET_KEY')
+    SECRET_KEY = os.getenv('django-insecure-ry33k#7gsh#1=2h-q0)jt@2!m+xia=(e#6%=gz0w4skcbp')
     DEBUG = os.getenv('DEBUG', '0').lower() in ['true', 't', '1']
     ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS').split(' ')
     CSRF_TRUSTED_ORIGINS = os.getenv('CSRF_TRUSTED_ORIGINS').split(' ')
