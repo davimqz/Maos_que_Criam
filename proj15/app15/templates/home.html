@@ -1,56 +1,41 @@
-{% load static %}
-{% csrf_token %}
-<html></html>
+<!DOCTYPE html>
+<html>
 <head>
+    {% load static %}
+
     <title>Mãos que Criam</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
- </head>
+</head>
 <body>
     <header>
         <img class="tamanho" src="{% static 'imgs/logosemfundo.png' %}" alt="Imagem 1">
         <nav>
-            <a class="cta" href="/admin/">
-                Gestão de Doações
-            </a>
-            <a href="#">
-                Pontos de Coleta
-            </a>
-            <a href="/feedbackdoador/">
-                Feedback do Doador
-            </a>
-            <a href="#">
-                Notificações de Necessidades
-            </a>
-            <a href="#">
-                Relatórios de Impacto
-            </a>
+            <a class="cta" href="/admin/">Gestão de Doações</a>
+            <a href="{% url 'mapeamento' %}">Pontos de Coleta</a>
+            <a href="{% url 'feedbackdoador' %}">Feedback do Doador</a>
+            <a href="{% url 'necessidades_especificas' %}">Notificações de Necessidades</a>
+            <a href="#">Relatórios de Impacto</a>
+            <a href="{% url 'perguntas_frequentes' %}">Perguntas Frequentes</a>
+    
+            {% if user.is_staff %}
+                <a href="{% url 'gerenciar_perguntas' %}">Gerenciar Perguntas</a>
+            {% endif %}
+    
             <div class="dropdown">
-                <a href="#">
-                    Mais Histórias
-                </a>
+                <a href="#">Mais Histórias</a>
                 <div class="dropdown-content">
-                    <a href="{% url 'generate_report' %}">
-                        Gerar relatorio
-                    </a>
-                    <a href="#">
-                        História 7
-                    </a>
-                    <a href="#">
-                        História 8
-                    </a>
-                    <a href="#">
-                        História 9
-                    </a>
-                    <a href="#">
-                        História 10
-                    </a>
+                    <a href="{% url 'generate_report' %}">Gerar relatório</a>
+                    <a href="#">História 7</a>
+                    <a href="#">História 8</a>
+                    <a href="{% url 'historico-doacoes' %}">Histórico de Doações</a>
+                    <a href="#">História 10</a>
                 </div>
             </div>
         </nav>
-        <a class="cta" href="{% url 'register' %}">
-            Entrar ou Cadastrar-se
+        <a class="cta" href="{% url 'register' %}" onclick="return confirm('Você será redirecionado para o cadastro. Deseja continuar?');">
+            Logout
         </a>
     </header>
     <br><br><br>
@@ -62,16 +47,19 @@
             <p>
                 Somos uma loja de brinquedos artesanais infantis que emprega mulheres de comunidades periféricas. Nosso objetivo é oferecer uma solução de gestão de materiais doados, trazendo controle e transparência desde o início da cadeia de produção. Junte-se a nós para tornar a doação mais acessível!
             </p>
+            <a class="cta" href="{% url 'faq_list' %}" style="background-color: #f39c12; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-size: 16px; display: inline-block; margin-top: 20px;">
+                Ver Perguntas Frequentes
+            </a> <!-- Adicionado botão para a página de FAQ -->
         </div>
         <div class="image">
-            <!--icone de boneco urso -->
+            <!-- icone de boneco urso -->
             <img alt="icone urso boneco" height="500" src="https://cdn-icons-png.flaticon.com/512/5002/5002251.png" width="500"/>
         </div>
     </section>
     <br><br><br>
     <section class="episodes">
         <h2>
-            Por que Escolher a Fábrica de Ideias ?
+            Por que Escolher a Fábrica de Ideias?
         </h2>
         <br><br>
         <div class="episode-list">
@@ -113,9 +101,7 @@
     <br><br><br><br><br><br>
     <div class="container">
         <div class="hero2">
-
             <img class="tamanho1" src="{% static 'imgs/danielle.jpg' %}" alt="Imagem 1">
-           
             <div class="hero2-content">
                 <span class="badge">
                     Sobre a Fundadora

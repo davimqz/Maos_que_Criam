@@ -1,9 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 <head>
+    {% load static %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
     <title>Feedback do Doador</title>
     <style>
     body {
@@ -78,68 +81,133 @@
         width: 200px;
         text-align: center;
     }
+    .container {
+        margin-top: 120px;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .container h2 {
+        font-size: 28px;
+        color: #4EADE4;
+    }
+    .container form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 300px;
+    }
+    .container form label {
+        margin: 10px 0 5px;
+        width: 100%;
+    }
+    .container form input,
+    .container form textarea,
+    .container form select {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        width: 100%;
+    }
+    .container form button {
+        padding: 10px 20px;
+        background-color: #4EADE4;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        margin-top: 20px;
+        cursor: pointer;
+        width: 150px;
+        text-align: center;
+    }
+    .container form button:hover {
+        background-color: #3b8dbd;
+    }
     </style>
 </head>
 <body>
     <header>
-        <img alt="logo estrela" height="50" src="imgs/logosemfundo.png" width="50"/>
+        <img class="tamanho" src="{% static 'imgs/logosemfundo.png' %}" alt="Imagem 1">
         <nav>
-            <a href="gestaodoacoes.html">Gestão de Doações</a>
-            <a href="#">Pontos de Coleta</a>
-            <a href="{% url 'feedbackdoador' %}">Feedback do Doador</a>
-            <a href="#">Notificações de Necessidades</a>
-            <a href="#">Relatórios de Impacto</a>
+            <a class="cta" href="/admin/">
+                Gestão de Doações
+            </a>
+            <a href="{% url 'mapeamento' %}">
+                Pontos de Coleta
+            </a>
+            <a href="{% url 'feedbackdoador' %}">
+                Feedback do Doador
+            </a>
+            <a href="{% url 'necessidades_especificas' %}">
+                Notificações de Necessidades
+            </a>
+            <a href="#">
+                Relatórios de Impacto
+            </a>
+            <a href="{% url 'perguntas_frequentes' %}">Perguntas Frequentes</a>
+    
+            {% if user.is_staff %}
+                <a href="{% url 'gerenciar_perguntas' %}">Gerenciar Perguntas</a>
+            {% endif %}
+    
             <div class="dropdown">
-                <a href="#">Mais Histórias</a>
+                <a href="#">
+                    Mais Histórias
+                </a>
                 <div class="dropdown-content">
-                    <a href="#">História 6</a>
-                    <a href="#">História 7</a>
-                    <a href="#">História 8</a>
-                    <a href="#">História 9</a>
-                    <a href="#">História 10</a>
+                    <a href="{% url 'generate_report' %}">
+                        Gerar relatório
+                    </a>
+                    <a href="#">
+                        História 7
+                    </a>
+                    <a href="#">
+                        História 8
+                    </a>
+                    <a href="{% url 'historico-doacoes' %}">
+                        Histórico de Doações
+                    </a>
+                    <a href="#">
+                        História 10
+                    </a>
                 </div>
             </div>
         </nav>
-        <a class="cta" href="#">Entrar ou Cadastrar-se</a>
+        <a class="cta" href="{% url 'register' %}" onclick="return confirm('Você será redirecionado para o cadastro. Deseja continuar?');">
+            Logout
+        </a>
     </header>
-    <br><br><br><br><br><br><br>
     
     <div class="container">
         <div class="feedback">
-            <i class="fas fa-fist-raised"></i>
-            <div class="texto">
-                <section class="episodes">
-                    <h2>Feedback Doador</h2>
-                    <br><br>
-                    <p>Compartilhe conosco suas experiências utilizando nossa plataforma, diga os pontos positivos e no que podemos melhorar!</p>
-                    <br><br><br>
-                    <div class="left-section">
-                        <form method="POST" action="{% url 'feedbackdoador' %}">
-                            {% csrf_token %}
-                            <label for="nome">Nome:</label><br><br>
-                            <input type="text" id="nome" name="nome" placeholder="Digite seu Nome" required><br><br>
-                            
-                            <label for="material">Material:</label><br><br>
-                            <input type="text" id="material" name="material" placeholder="Digite o Material Doado" required><br><br>
-                            
-                            <label for="opiniao">Diga sua Opinião:</label><br><br>
-                            <textarea name="opiniao" placeholder="Digite sua Opinião" required></textarea><br><br>
-                            
-                            <label for="opcoes">Como você avalia nosso serviço?:</label><br><br>
-                            <select name="opcoes" id="opcoes" required>
-                                <option value="">Escolha sua opção</option>
-                                <option value="péssimo">Péssimo</option>
-                                <option value="ruim">Ruim</option>
-                                <option value="razoável">Razoável</option>
-                                <option value="bom">Bom</option>
-                                <option value="muito bom">Muito Bom</option>
-                            </select><br><br>
-                            
-                            <button type="submit" class="btn">ENVIAR</button>
-                        </form>
-                    </div>
-                </section>
-            </div>
+            <section class="episodes">
+                <h2>Feedback do Doador</h2>
+                <p>Compartilhe conosco suas experiências utilizando nossa plataforma, diga os pontos positivos e no que podemos melhorar!</p>
+                <form method="POST" action="{% url 'feedbackdoador' %}">
+                    {% csrf_token %}
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="nome" name="nome" placeholder="Digite seu Nome" required>
+
+                    <label for="material">Material:</label>
+                    <input type="text" id="material" name="material" placeholder="Digite o Material Doado" required>
+
+                    <label for="opiniao">Diga sua Opinião:</label>
+                    <textarea name="opiniao" placeholder="Digite sua Opinião" required></textarea>
+
+                    <label for="opcoes">Como você avalia nosso serviço?</label>
+                    <select name="opcoes" id="opcoes" required>
+                        <option value="">Escolha sua opção</option>
+                        <option value="péssimo">Péssimo</option>
+                        <option value="ruim">Ruim</option>
+                        <option value="razoável">Razoável</option>
+                        <option value="bom">Bom</option>
+                        <option value="muito bom">Muito Bom</option>
+                    </select>
+
+                    <button type="submit" class="btn">Enviar</button>
+                </form>
+            </section>
         </div>
     </div>
 </body>

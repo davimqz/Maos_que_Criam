@@ -2,12 +2,13 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
-from .models import Doacao, Doador, Feedback
+from .models import Doacao, Doador, Feedback, Necessidade
 from datetime import datetime
 from django.contrib.auth import logout
 from django.utils.dateparse import parse_date
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
+import folium
 
 
 def register(request):
@@ -218,5 +219,124 @@ def generate_report(request):
     # Para o formato HTML
     return render(request, "report.html", {"donations": donations})
 
+def necessidades_view(request):
+    necessidades = Necessidade.objects.all().order_by('-data_criacao')  # Ordena pela data de criação
+    return render(request, 'necessidades-especificas.html', {'necessidades': necessidades})
+
+from django.shortcuts import render, get_object_or_404
+from django.http import JsonResponse, HttpResponse
+from .models import FAQ, FAQResponse
+from django.views.decorators.csrf import csrf_exempt
+import json
+
+def faq_list(request):
+    """Exibe a lista de perguntas frequentes."""
+    faqs = FAQ.objects.all()
+    return render(request, 'faq_list.html', {'faqs': faqs})
 
 
+@csrf_exempt
+def submit_response(request, faq_id):
+    """Recebe e armazena a resposta do usuário para uma pergunta específica."""
+    if request.method == 'POST':
+        try:
+            faq = get_object_or_404(FAQ, id=faq_id)
+            data = json.loads(request.body)
+            user_response = data.get('response')
+
+            if not user_response:
+                return JsonResponse({'error': 'A resposta não pode estar vazia.'}, status=400)
+
+            FAQResponse.objects.create(faq=faq, user_response=user_response)
+            return JsonResponse({'message': 'Resposta enviada com sucesso.'}, status=201)
+        except Exception as e:
+            return JsonResponse({'error': str(e)}, status=500)
+    else:
+        return HttpResponse('Método não permitido.', status=405)
+    
+from django.shortcuts import render, redirect
+from .models import Pergunta
+
+# Exibe as perguntas frequentes
+def perguntas_frequentes(request):
+    perguntas = Pergunta.objects.all().order_by('-data_criacao')  # Ordena por data, mais recente primeiro
+    return render(request, 'perguntas_frequentes.html', {'perguntas': perguntas})
+
+# Lida com o envio de novas perguntas
+def enviar_pergunta(request):
+    if request.method == 'POST':
+        texto = request.POST.get('pergunta')  # Obtém o texto da pergunta do formulário
+        if texto:
+            Pergunta.objects.create(texto=texto)  # Cria a pergunta no banco de dados
+        return redirect('perguntas_frequentes')  # Redireciona para a página de perguntas
+    return render(request, 'enviar_pergunta.html')
+
+from django.contrib.auth.decorators import user_passes_test
+from django.shortcuts import get_object_or_404, redirect, render
+from .models import Pergunta
+
+# Verifica se o usuário é administrador
+def is_admin(user):
+    return user.is_staff
+
+@user_passes_test(is_admin)
+def gerenciar_perguntas(request):
+    perguntas = Pergunta.objects.all().order_by('-data_criacao')
+
+    if request.method == 'POST':
+        pergunta_id = request.POST.get('pergunta_id')
+        resposta = request.POST.get('resposta')
+
+        pergunta = get_object_or_404(Pergunta, id=pergunta_id)
+        pergunta.resposta = resposta
+        pergunta.save()
+
+        return redirect('gerenciar_perguntas')
+
+    return render(request, 'gerenciar_perguntas.html', {'perguntas': perguntas})
+
+
+def historico_doacoes(request):
+    feedbacks = Feedback.objects.all().order_by('-id')  # Ordena por ordem decrescente de criação
+    return render(request, 'historico-doacoes.html', {'feedbacks': feedbacks})
+
+def map_view(request):
+    # Criação do mapa centralizado
+    mapa = folium.Map(location=[-8.047562, -34.877], zoom_start=12)
+
+    # Lista de pontos de coleta
+    pontos = [
+        {
+            "nome": "Espaço 46",
+            "endereco": "Av. República do Líbano, 251, RioMar Shopping, Piso L2",
+            "latitude": -8.08581,
+            "longitude": -34.89477,
+            "cor": "red",  # Cor do marcador
+        },
+    ]
+
+    # Adiciona marcadores ao mapa
+    for ponto in pontos:
+        # HTML do pop-up com links corrigidos
+        popup_html = f"""
+        <b>{ponto['nome']}</b><br>
+        {ponto['endereco']}<br>
+        <a href="https://www.google.com/maps/dir/?api=1&destination={ponto['latitude']},{ponto['longitude']}" target="_blank">
+            Rota no Google Maps
+        </a><br>
+        <a href="https://www.openstreetmap.org/directions?to={ponto['latitude']},{ponto['longitude']}" target="_blank">
+            Rota no OpenStreetMap
+        </a>
+        """
+        folium.Marker(
+            location=[ponto["latitude"], ponto["longitude"]],
+            popup=popup_html,
+            tooltip=ponto["nome"],
+            icon=folium.Icon(color=ponto["cor"]),  # Define a cor do marcador
+        ).add_to(mapa)
+
+    # Renderiza o mapa como HTML
+    mapa_html = mapa._repr_html_()
+
+    # Passa o mapa e os pontos para o template
+    return render(request, "mapeamento.html", {"mapa": mapa_html})

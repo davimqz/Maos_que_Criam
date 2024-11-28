@@ -34,7 +34,7 @@ class Doacao(models.Model):
     tipo_material = models.CharField(max_length=100)
     quantidade = models.PositiveIntegerField()
     data_doacao = models.DateField(auto_now_add=True)
-    produto = models.CharField(max_length=255, default='Produto Não Especificado')
+    produto = models.CharField(max_length=255, default='')
     def __str__(self):
         return f"{self.tipo_material} - {self.doador.nome}"
 
@@ -66,3 +66,37 @@ class Donation(models.Model):
 
     def __str__(self):
         return f"{self.material_type} - {self.quantity}"
+    
+class Necessidade(models.Model):
+    item = models.CharField("Necessidade de Insumo", max_length=100)
+    prioridade = models.CharField("Prioridade", max_length=20, choices=[('alta', 'Alta'), ('media', 'Média'), ('baixa', 'Baixa')])
+    detalhes = models.TextField("Detalhes", blank=True, null=True)
+    data_criacao = models.DateTimeField("Data de Criação", auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.item} ({self.prioridade})"
+    
+from django.db import models
+
+class FAQ(models.Model):
+    question = models.CharField(max_length=255)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.question
+
+
+class FAQResponse(models.Model):
+    faq = models.ForeignKey(FAQ, on_delete=models.CASCADE, related_name="responses")
+    user_response = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Response to: {self.faq.question}"
+
+class Pergunta(models.Model):
+    texto = models.TextField("Pergunta")
+    data_criacao = models.DateTimeField(auto_now_add=True)
+    resposta = models.TextField("Resposta", blank=True, null=True)  # Campo para resposta
+    def __str__(self):
+        return self.texto[:50]  # Retorna os primeiros 50 caracteres    

@@ -17,6 +17,7 @@ Including another URLconf
 from django.urls import path
 from . import views
 from .views import generate_report
+from django.contrib.auth.views import LogoutView
 
 urlpatterns = [
     path('', views.home, name='home'),
@@ -24,10 +25,16 @@ urlpatterns = [
     path('lista_doacoes/', views.lista_doacoes, name='lista_doacoes'),
     path('register/', views.register, name='register'),
     path('login/', views.user_login, name='login'),
-    path('logout/', views.user_logout, name='logout'),
+    path('logout/', LogoutView.as_view(next_page='register'), name='logout'),
     path('home/', views.home, name='home'),
     path('feedbackdoador/', views.feedbackdoador, name='feedbackdoador'),
     path("relatorio/", views.generate_report, name="generate_report"),
-    
-
+    path('necessidades-especificas/', views.necessidades_view, name='necessidades_especificas'), 
+    path('faqs/', views.faq_list, name='faq_list'),
+    path('faqs/<int:faq_id>/respond/', views.submit_response, name='submit_response'),
+    path('perguntas-frequentes/', views.perguntas_frequentes, name='perguntas_frequentes'),
+    path('enviar-pergunta/', views.enviar_pergunta, name='enviar_pergunta'),
+    path('gerenciar-perguntas/', views.gerenciar_perguntas, name='gerenciar_perguntas'),
+    path('historico-doacoes/', views.historico_doacoes, name='historico-doacoes'),
+    path("mapeamento/", views.map_view, name="mapeamento"),
 ]
