@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perguntas Frequentes</title>
+    <script>
+        async function submitResponse(faqId) {
+            const response = prompt("Digite sua resposta:");
+
+            if (!response) {
+                alert("A resposta não pode estar vazia.");
+                return;
+            }
+
+            const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+
+            const res = await fetch(`/faqs/${faqId}/respond/`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "X-CSRFToken": csrftoken
+                },
+                body: JSON.stringify({ response: response })
+            });
+
+            const data = await res.json();
+            if (res.status === 201) {
+                alert(data.message);
+            } else {
+                alert(`Erro: ${data.error}`);
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Perguntas Frequentes</h1>
+    <ul>
+        {% for faq in faqs %}
+        <li>
+            {{ faq.question }}
+            <button onclick="submitResponse({{ faq.id }})">Responder</button>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Histórico de Doações</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+    <style>
+        /* CSS adicional para a página */
+        .container {
+            margin-top: 150px; /* Ajustado para aumentar o espaço */
+            padding: 20px;
+        }
+        .container h1 {
+            font-size: 28px;
+            color: #4EADE4;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .feedback-item {
+            background: white;
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .feedback-item h3 {
+            margin-top: 0;
+            font-size: 20px;
+            color: #4EADE4;
+        }
+        .feedback-item p {
+            margin: 5px 0;
+            font-size: 16px;
+        }
+        .feedback-item .avaliacao {
+            font-weight: bold;
+            color: #F8D234;
+        }
+    </style>
+</head>
+<body>
+    <!-- Cabeçalho fixo -->
+    <header>
+        <div class="logo">
+            <a href="/">
+                <img src="{% static 'imgs/logosemfundo.png' %}" alt="Logo" style="width: 150px;">
+            </a>
+        </div>
+        <nav>
+            <a href="/">Página Inicial</a>
+            <a href="{% url 'mapeamento' %}">Pontos de Coleta</a>
+            <a href="{% url 'feedbackdoador' %}">Enviar Feedback</a>
+            <a href="{% url 'historico-doacoes' %}">Histórico de Feedbacks</a>
+            <a href="{% url 'necessidades_especificas' %}">Notificações de Necessidades</a>
+            <a href="{% url 'perguntas_frequentes' %}">Perguntas Frequentes</a>
+            {% if user.is_staff %}
+                <a href="{% url 'gerenciar_perguntas' %}">Gerenciar Perguntas</a>
+            {% endif %}
+            <div class="dropdown">
+                <a href="#">Mais Histórias</a>
+                <div class="dropdown-content">
+                    <a href="{% url 'generate_report' %}">Gerar Relatório</a>
+                    <a href="#">História 7</a>
+                    <a href="#">História 8</a>
+                    <a href="{% url 'historico-doacoes' %}">Histórico de Doações</a>
+                    <a href="#">História 10</a>
+                </div>
+            </div>
+        </nav>
+        <a class="cta" href="{% url 'register' %}" onclick="return confirm('Você será redirecionado para o cadastro. Deseja continuar?');">
+            Logout
+        </a>
+    </header>
+
+    <!-- Conteúdo principal -->
+    <div class="container">
+        <h1>Histórico de Feedbacks</h1>
+        <hr>
+        {% for feedback in feedbacks %}
+        <div class="feedback-item">
+            <h3>{{ feedback.nome }}</h3>
+            <p><strong>Material:</strong> {{ feedback.material }}</p>
+            <p><strong>Opinião:</strong> {{ feedback.opiniao }}</p>
+            <p><strong>Avaliação:</strong> <span class="avaliacao">{{ feedback.avaliacao }}</span></p>
+        </div>
+        {% empty %}
+        <p>Nenhum feedback registrado ainda.</p>
+        {% endfor %}
+    </div>
+</body>
+</html>

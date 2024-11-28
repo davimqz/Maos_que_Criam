@@ -62,3 +62,4 @@ Thumbs.db
 # Ignorar arquivos de tradução compilados (ex: gettext)
 *.mo
 *.pot
+venv

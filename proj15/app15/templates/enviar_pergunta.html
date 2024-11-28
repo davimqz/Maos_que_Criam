@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perguntas Frequentes</title>
+    <!-- Carregar arquivos estáticos -->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+
+        .faq-section {
+            max-width: 800px;
+            width: 90%;
+            margin: 50px auto;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .faq-section h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        form {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        textarea {
+            width: 100%;
+            max-width: 700px;
+            padding: 15px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            resize: none;
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <img class="logo" src="{% static 'images/logo.png' %}" alt="Logo">
+        <nav class="nav">
+            <a class="cta admin" href="{% url 'admin:index' %}">Admin</a>
+            <a href="{% url 'mapeamento' %}">Pontos de Coleta</a>
+            <a href="#">Feedback do Doador</a>
+            <a href="#">Notificações de Necessidades</a>
+            <a href="#">Relatórios de Impacto</a>
+            <a href="#">Perguntas Frequentes</a>
+            <a href="#">Gerenciar Perguntas</a>
+            <div class="dropdown">
+                <a href="#">Mais Histórias</a>
+                <div class="dropdown-content">
+                    <a href="#">Gerar relatório</a>
+                    <a href="#">História 7</a>
+                    <a href="#">História 8</a>
+                    <a href="#">Histórico de Doações</a>
+                    <a href="#">História 10</a>
+                </div>
+            </div>
+        </nav>
+        <a class="cta logout" href="#">Logout</a>
+    </header>
+
+    <main class="faq-section">
+        <h1>Perguntas Frequentes</h1>
+        <h1>Envie sua Pergunta</h1>
+        <form method="POST">
+            {% csrf_token %}
+            <textarea name="pergunta" rows="5" placeholder="Digite sua pergunta aqui..."></textarea><br>
+            <button type="submit">Enviar</button>
+        </form>
+    </main>
+</body>
+</html>

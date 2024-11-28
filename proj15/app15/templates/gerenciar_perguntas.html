@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    {% load static %}
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciar Perguntas</title>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+            padding-top: 80px; /* Ajuste para compensar a altura do header fixo */
+        }
+        
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background-color: #4EADE4;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-sizing: border-box;  /* Garantir que o padding não aumente a altura do header */
+        }
+        
+        header .logo {
+            height: 40px;  /* Ajuste a altura conforme necessário */
+            width: auto;   /* Mantém a proporção da imagem */
+        }
+        
+        header .logo span {
+            color: #F8D234;
+        }
+        
+        header nav {
+            display: flex;
+            align-items: center;
+            gap: 15px;  /* Espaçamento entre os links */
+        }
+
+        header nav a {
+            margin: 0 10px;  /* Reduzindo o espaçamento entre os links */
+            text-decoration: none;
+            color: #fff;
+            font-weight: 600;
+        }
+
+        header nav .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        
+        header nav .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            z-index: 1;
+        }
+
+        header nav .dropdown-content a {
+            color: #333;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        header nav .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        header nav .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        header .cta {
+            display: inline-block;
+            background-color: #F8D234;
+            color: #333;
+            padding: 6px 15px;  /* Ajuste de padding */
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 400;
+        }
+
+        table {
+            width: 100%;              /* Defina a largura da tabela, ajustável */
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #4EADE4; /* Cor de fundo azul */
+            color: white; /* Cor do texto no cabeçalho */
+        }
+
+        /* Estilos para o botão */
+        .btn-info {
+            padding: 8px 12px;
+            background-color: #4EADE4;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .faq-container {
+            width: 60%;
+            margin: 20px auto;
+            padding: 10px;
+        }
+
+        .faq-item {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+
+        .faq-item h2 {
+            font-size: 1.2em;
+            color: #4EADE4;
+            margin: 0 0 10px;
+        }
+
+        .faq-item p {
+            margin: 0;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <img class="logo" src="{% static 'imgs/logosemfundo.png' %}" alt="Logo">
+        <nav class="nav">
+            <a class="cta admin" href="/admin/">Admin</a>
+            <a href="{% url 'mapeamento' %}">Pontos de Coleta</a>
+            <a href="{% url 'feedbackdoador' %}">Feedback do Doador</a>
+            <a href="{% url 'necessidades_especificas' %}">Notificações de Necessidades</a>
+            <a href="#">Relatórios de Impacto</a>
+            <a href="{% url 'perguntas_frequentes' %}">Perguntas Frequentes</a>
+            {% if user.is_staff %}
+                <a href="{% url 'gerenciar_perguntas' %}">Gerenciar Perguntas</a>
+            {% endif %}
+            <div class="dropdown">
+                <a href="#">Mais Histórias</a>
+                <div class="dropdown-content">
+                    <a href="{% url 'generate_report' %}">Gerar relatório</a>
+                    <a href="#">História 7</a>
+                    <a href="#">História 8</a>
+                    <a href="{% url 'historico-doacoes' %}">Histórico de Doações</a>
+                    <a href="#">História 10</a>
+                </div>
+            </div>
+        </nav>
+        <a class="cta logout" href="{% url 'register' %}" onclick="return confirm('Você será redirecionado para o cadastro. Deseja continuar?');">Logout</a>
+    </header>
+
+    <div class="container">
+        <h1>Gerenciar Perguntas</h1>
+        <table>
+            <tr>
+                <th>Pergunta</th>
+                <th>Resposta</th>
+                <th>Ações</th>
+            </tr>
+            {% for pergunta in perguntas %}
+                <tr>
+                    <td>{{ pergunta.texto }}</td>
+                    <td>
+                        {% if pergunta.resposta %}
+                            {{ pergunta.resposta }}
+                        {% else %}
+                            <i>Ainda não respondida</i>
+                        {% endif %}
+                    </td>
+                    <td>
+                        <form method="POST">
+                            {% csrf_token %}
+                            <input type="hidden" name="pergunta_id" value="{{ pergunta.id }}">
+                            <textarea name="resposta" rows="2" cols="40" placeholder="Digite a resposta aqui..."></textarea><br>
+                            <button class="btn-info" type="submit">Responder</button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+        <br><br>
+        <button class="btn-info" onclick="window.location.href='{% url 'perguntas_frequentes' %}'">Voltar para Perguntas Frequentes</button>
+    </div>
+</body>
+
+</html>
