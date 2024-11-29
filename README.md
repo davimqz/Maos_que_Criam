@@ -79,3 +79,42 @@ Para mais informações e detalhes sobre o progresso do projeto, consulte o pain
   - [Relatório programação em par](https://docs.google.com/document/d/1S0l-k7ziQWvNZi77SQb9EfEVr5BQFjDvAyyH47iYN0U/edit?usp=sharing)
 
 </details>
+<details>
+  <summary>Sprint 2 (SR2) </summary>
+  <br>
+  <p><strong>Seleção de mais histórias para implementar:</strong> As novas histórias selecionadas para implementação no SR2 podem ser visualizadas <a href="https://docs.google.com/document/d/1sUhPXfZy5tokb3bEECqq1p_p9FEPVFcnGwMZFaq_lEY/edit?usp=sharing" target="_blank">aqui</a>.</p>
+  <br>
+
+<p><strong>Histórias implementadas:</strong> Todas as histórias implementadas pro SR2 podem ser visualizadas <a href="https://docs.google.com/document/d/18xU1Ph_dvvi7prdrhz6xQmDg0HIXWUlfBjWvhpVGO10/edit?tab=t.0" target="_blank">aqui</a>.</p>
+
+  <p><strong>Protótipo atualizado:</strong> O protótipo de média fidelidade foi atualizado e pode ser visualizado <a href="https://www.figma.com/design/Qab1UVomdm80XcZu2h5VZ9/Storyboards?node-id=0-1&t=IPEg7XQTIVb3J7oF-1" target="_blank">neste link</a>. Um screencast do protótipo atualizado está disponível <a href="https://youtu.be/7fCCUPJ1km0?si=zfPg2FRoI9qSoecm" target="_blank">aqui</a>.</p>
+  <br>
+
+<p><strong>Deployment:</strong> O site com as novas histórias foi publicado e pode ser acessado <a href="https://conectapop2.azurewebsites.net/" target="_blank">aqui</a>. O screencast demonstrando as histórias implementadas nesse último deploy está disponível <a href="https://www.loom.com/share/7115fbd4e84241089de66796d26456b7" target="_blank">neste link</a>.</p>
+  <br>
+
+  <p><strong>Uso do Issue/Bug Tracker:</strong> O tracker de problemas foi atualizado e pode ser acessado no repositório do GitHub. Print da tela do tracker abaixo:</p>
+  <img width="1235" alt="Captura de Tela 2024-11-28 às 15 43 58" src="https://github.com/user-attachments/assets/1838482f-970e-47c8-9312-8e95a24a392e">
+  <br>
+  <br>
+
+
+  <p><strong>Testes de sistema automatizados:</strong> Os testes de sistema automatizados foram executados para garantir a qualidade do software. Um screencast da execução dos testes pode ser visto <a href="https://www.loom.com/share/3742ef53183a4d93871e5937af955ed2?sid=962392f7-6a47-46e7-a22e-c002d7a2cd68" target="_blank">aqui</a>.</p>
+  <br>
+
+  <p><strong>CI/CD Pipeline:</strong> A pipeline de CI/CD foi configurada no GitHub, com build, deployment e testes automatizados. O processo completo de build e deployment pode ser visualizado no screencast <a href="https://youtu.be/qD0cO_Qfzgo" target="_blank">aqui</a>.</p>
+  <br>
+
+  <p><strong>Quadro da Sprint atualizado:</strong> O quadro da sprint foi atualizado e reflete a entrega atual. O print do quadro está abaixo:</p>
+<img width="1146" alt="Captura de Tela 2024-11-28 às 15 46 38" src="https://github.com/user-attachments/assets/bb38a914-0d53-4701-9e5d-9048a67c35f5">  <br>
+  <br>
+
+
+  <p><strong>Diagrama de atividades do sistema:</strong> Um diagrama de atividades foi criado para mapear o fluxo das novas histórias e facilitar o entendimento dos processos do sistema. O diagrama pode ser acessado <a href="https://www.canva.com/design/DAGTqc-HxiA/IT_mKq0cTOa4Th1blw4LJw/edit?utm_content=DAGTqc-HxiA&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank">aqui</a>.</p>
+  <br>
+
+  <p><strong>Relatório de programação em par:</strong> Durante o desenvolvimento, a técnica de programação em par foi utilizada para aumentar a qualidade do código e promover o compartilhamento de conhecimento entre os integrantes da equipe. O relatório detalhando as sessões de programação em par, incluindo desafios enfrentados e aprendizados, pode ser acessado <a href="https://docs.google.com/document/d/1tDrUWrl9fCK7FWPi1EfclNj5By139YvdnZr1b4-NiwA/edit?usp=sharing" target="_blank">aqui</a>.</p>
+  <br>
+
+  <p><strong>Sketches e storyboards:</strong> Os sketches e storyboards foram desenvolvidos para auxiliar no planejamento e visualização das novas histórias. O material pode ser acessado <a href="https://www.canva.com/design/DAGTxWSiw7w/e6drUkL_kZraCXCEi37VJQ/edit?utm_content=DAGTxWSiw7w&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank">neste link</a>.</p>
+</details>
