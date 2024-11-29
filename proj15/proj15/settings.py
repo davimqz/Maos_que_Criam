@@ -11,13 +11,13 @@ load_dotenv(BASE_DIR / '.env')
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 TARGET_ENV = os.getenv('TARGET_ENV')
-NOT_PROD = not TARGET_ENV.lower().startswith('prod') if TARGET_ENV else True
+NOT_PROD = not TARGET_ENV.lower().startswith('prod')
 
 if NOT_PROD:
     # SECURITY WARNING: don't run with debug turned on in production!
     DEBUG = True
     # SECURITY WARNING: keep the secret key used in production secret!
-    SECRET_KEY = 'django-insecure-*ry33k#7gsh#1=2h-q0)jt@2!m*+xia=*(e#6*%=gz0w4skcbp'
+    SECRET_KEY = 'django-insecure-*ry33k#7gsh#1=2h-q0)jt@2!m+xia=*(e#6%=gz0w4skcbp'
     ALLOWED_HOSTS = []
     DATABASES = {
         'default': {
@@ -26,13 +26,17 @@ if NOT_PROD:
         }
     }
 else:
-    # Ensure the SECRET_KEY is set in the environment for production
-    SECRET_KEY = os.getenv('django-insecure-*ry33k#7gsh#1=2h-q0)jt@2!m*+xia=*(e#6*%=gz0w4skcbp')
-    if not SECRET_KEY:
-        raise ValueError("The SECRET_KEY environment variable must be set in production.")
-    
+    SECRET_KEY = os.getenv('SECRET_KEY')
     DEBUG = os.getenv('DEBUG', '0').lower() in ['true', 't', '1']
     ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '').split(',')
+    CSRF_TRUSTED_ORIGINS = os.getenv('CSRF_TRUSTED_ORIGINS').split(' ')
+
+    SECURE_SSL_REDIRECT = \
+        os.getenv('SECURE_SSL_REDIRECT', '0').lower() in ['true', 't', '1']
+
+    if SECURE_SSL_REDIRECT:
+        SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
     DATABASES = {
         'default': {
             'ENGINE': os.getenv('DB_ENGINE', 'django.db.backends.postgresql'),
@@ -137,7 +141,9 @@ USE_TZ = True
 
 STATIC_URL = os.environ.get('DJANGO_STATIC_URL', "/static/")
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
