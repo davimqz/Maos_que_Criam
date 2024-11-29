@@ -87,7 +87,7 @@ Para mais informações e detalhes sobre o progresso do projeto, consulte o pain
 
 <p><strong>Histórias implementadas:</strong> Todas as histórias implementadas pro SR2 podem ser visualizadas <a href="https://docs.google.com/document/d/18xU1Ph_dvvi7prdrhz6xQmDg0HIXWUlfBjWvhpVGO10/edit?tab=t.0" target="_blank">aqui</a>.</p>
 
-  <p><strong>Protótipo atualizado:</strong> O protótipo de média fidelidade foi atualizado e pode ser visualizado <a href="https://www.figma.com/design/Qab1UVomdm80XcZu2h5VZ9/Storyboards?node-id=0-1&t=IPEg7XQTIVb3J7oF-1" target="_blank">neste link</a>. Um screencast do protótipo atualizado está disponível <a href="https://youtu.be/7fCCUPJ1km0?si=zfPg2FRoI9qSoecm" target="_blank">aqui</a>.</p>
+  <p><strong>Protótipo atualizado:</strong> O protótipo de média fidelidade foi atualizado e pode ser visualizado <a href="https://www.figma.com/design/EwT4wDzrwbbrEwmxDaVGDo/PROJETO-2---GP15?node-id=0-1&node-type=canvas&t=zoZe2LGjV1gWMakp-0" target="_blank">neste link</a>. Um screencast do protótipo atualizado está disponível <a href="https://youtu.be/7fCCUPJ1km0?si=zfPg2FRoI9qSoecm" target="_blank">aqui</a>.</p>
   <br>
 
 <p><strong>Deployment:</strong> O site com as novas histórias foi publicado e pode ser acessado <a href="https://conectapop2.azurewebsites.net/" target="_blank">aqui</a>. O screencast demonstrando as histórias implementadas nesse último deploy está disponível <a href="https://www.loom.com/share/7115fbd4e84241089de66796d26456b7" target="_blank">neste link</a>.</p>
