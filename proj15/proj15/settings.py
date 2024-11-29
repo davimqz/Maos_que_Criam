@@ -11,7 +11,7 @@ load_dotenv(BASE_DIR / '.env')
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 TARGET_ENV = os.getenv('TARGET_ENV')
-NOT_PROD = not TARGET_ENV.lower().startswith('prod')
+NOT_PROD = not TARGET_ENV.lower().startswith('prod') if TARGET_ENV else True
 
 if NOT_PROD:
     # SECURITY WARNING: don't run with debug turned on in production!
@@ -26,25 +26,21 @@ if NOT_PROD:
         }
     }
 else:
+    # Ensure the SECRET_KEY is set in the environment for production
     SECRET_KEY = os.getenv('django-insecure-*ry33k#7gsh#1=2h-q0)jt@2!m*+xia=*(e#6*%=gz0w4skcbp')
+    if not SECRET_KEY:
+        raise ValueError("The SECRET_KEY environment variable must be set in production.")
+    
     DEBUG = os.getenv('DEBUG', '0').lower() in ['true', 't', '1']
-    ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS').split(' ')
-    CSRF_TRUSTED_ORIGINS = os.getenv('CSRF_TRUSTED_ORIGINS').split(' ')
-
-    SECURE_SSL_REDIRECT = \
-        os.getenv('SECURE_SSL_REDIRECT', '0').lower() in ['true', 't', '1']
-
-    if SECURE_SSL_REDIRECT:
-        SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-
+    ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '').split(',')
     DATABASES = {
         'default': {
-            'ENGINE': 'django.db.backends.postgresql',
-            'NAME': os.environ.get('DBNAME'),
-            'HOST': os.environ.get('DBHOST'),
-            'USER': os.environ.get('DBUSER'),
-            'PASSWORD': os.environ.get('DBPASS'),
-            'OPTIONS': {'sslmode': 'require'},
+            'ENGINE': os.getenv('DB_ENGINE', 'django.db.backends.postgresql'),
+            'NAME': os.getenv('DB_NAME'),
+            'USER': os.getenv('DB_USER'),
+            'PASSWORD': os.getenv('DB_PASSWORD'),
+            'HOST': os.getenv('DB_HOST'),
+            'PORT': os.getenv('DB_PORT', '5432'),
         }
     }
 
