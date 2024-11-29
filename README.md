@@ -102,7 +102,7 @@ Para mais informações e detalhes sobre o progresso do projeto, consulte o pain
   <p><strong>Testes de sistema automatizados:</strong> Os testes de sistema automatizados foram executados para garantir a qualidade do software. Um screencast da execução dos testes pode ser visto <a href="https://www.loom.com/share/3742ef53183a4d93871e5937af955ed2?sid=962392f7-6a47-46e7-a22e-c002d7a2cd68" target="_blank">aqui</a>.</p>
   <br>
 
-  <p><strong>CI/CD Pipeline:</strong> A pipeline de CI/CD foi configurada no GitHub, com build, deployment e testes automatizados. O processo completo de build e deployment pode ser visualizado no screencast <a href="https://youtu.be/qD0cO_Qfzgo" target="_blank">aqui</a>.</p>
+  <p><strong>CI/CD Pipeline:</strong> A pipeline de CI/CD foi configurada no GitHub, com build, deployment e testes automatizados. O processo completo de build e deployment pode ser visualizado no screencast <a href="#" target="_blank">aqui</a>.</p>
   <br>
 
   <p><strong>Quadro da Sprint atualizado:</strong> O quadro da sprint foi atualizado e reflete a entrega atual. O print do quadro está abaixo:</p>
