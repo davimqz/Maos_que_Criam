@@ -90,7 +90,7 @@ Para mais informações e detalhes sobre o progresso do projeto, consulte o pain
   <p><strong>Protótipo atualizado:</strong> O protótipo de média fidelidade foi atualizado e pode ser visualizado <a href="https://www.figma.com/design/EwT4wDzrwbbrEwmxDaVGDo/PROJETO-2---GP15?node-id=0-1&node-type=canvas&t=zoZe2LGjV1gWMakp-0" target="_blank">neste link</a>. Um screencast do protótipo atualizado está disponível <a href="https://youtu.be/7fCCUPJ1km0?si=zfPg2FRoI9qSoecm" target="_blank">aqui</a>.</p>
   <br>
 
-<p><strong>Deployment:</strong> O site com as novas histórias foi publicado e pode ser acessado <a href="https://conectapop2.azurewebsites.net/" target="_blank">aqui</a>. O screencast demonstrando as histórias implementadas nesse último deploy está disponível <a href="https://www.loom.com/share/7115fbd4e84241089de66796d26456b7" target="_blank">neste link</a>.</p>
+<p><strong>Deployment:</strong> O site com as novas histórias foi publicado e pode ser acessado <a href="#" target="_blank">aqui</a>. O screencast demonstrando as histórias implementadas nesse último deploy está disponível <a href="https://www.loom.com/share/7115fbd4e84241089de66796d26456b7" target="_blank">neste link</a>.</p>
   <br>
 
   <p><strong>Uso do Issue/Bug Tracker:</strong> O tracker de problemas foi atualizado e pode ser acessado no repositório do GitHub. Print da tela do tracker abaixo:</p>
