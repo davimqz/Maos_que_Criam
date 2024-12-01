@@ -84,7 +84,11 @@ Para mais informações e detalhes sobre o progresso do projeto, consulte o pain
   <br>
   <p><strong>Seleção de mais histórias para implementar:</strong> As novas histórias selecionadas para implementação no SR2 podem ser visualizadas <a href="https://docs.google.com/document/d/1sUhPXfZy5tokb3bEECqq1p_p9FEPVFcnGwMZFaq_lEY/edit?usp=sharing" target="_blank">aqui</a>.</p>
   <br>
-
+<p><strong>Para acessar a parte de admin:</strong>tente o user AdmMestre e senha 098.
+Se por algum acaso nao funcionar ou ele relatar que esta incorreto , entre no codigo fonte , abra o terminal e digite o comando 
+"Python manage.py createsuperuser" e crie uma conta de admin.
+</p>
+  
 <p><strong>Histórias implementadas:</strong> Todas as histórias implementadas pro SR2 podem ser visualizadas <a href="https://docs.google.com/document/d/18xU1Ph_dvvi7prdrhz6xQmDg0HIXWUlfBjWvhpVGO10/edit?tab=t.0" target="_blank">aqui</a>.</p>
 
   <p><strong>Protótipo atualizado:</strong> O protótipo de média fidelidade foi atualizado e pode ser visualizado <a href="https://www.figma.com/design/EwT4wDzrwbbrEwmxDaVGDo/PROJETO-2---GP15?node-id=0-1&node-type=canvas&t=zoZe2LGjV1gWMakp-0" target="_blank">neste link</a>. Um screencast do protótipo atualizado está disponível <a href="https://youtu.be/7fCCUPJ1km0?si=zfPg2FRoI9qSoecm" target="_blank">aqui</a>.</p>
